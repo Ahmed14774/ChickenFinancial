@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
 
 const { restart } = require('nodemon');
-const { exec } = require('../util/database');
+const db = require('../util/database')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

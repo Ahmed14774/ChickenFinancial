@@ -1,0 +1,7 @@
+Persistant XSS - Transfer history
+CSRF Auth refresh
+Arbitrary Origin 
+SQLi - Access History (No Errors Msg)
+IDOR - get users V1 
+SSRF - Post Transfer
+MFLAC - Authorize Account (ACL localhost only)

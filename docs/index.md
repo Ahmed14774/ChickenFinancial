@@ -1,4 +1,4 @@
-![objectionRecursiveDownloadLogo](https://github.com/Yaeger/ChickenFinancial/blob/master/public/images/logo-OrangeOnGrey.png) 
+![ChickenFinancial](https://github.com/Yaeger/ChickenFinancial/raw/gh-pages/docs/logo-OrangeOnGrey.png) 
 <br> 
 [![licence badge]][licence] 
 [![stars badge]][stars] 

@@ -6,6 +6,7 @@
 [![issues badge]][issues] |
 
 [licence badge]:https://img.shields.io/badge/license-New%20BSD-blue.svg
+[Contributors badge]:https://img.shields.io/github/contributors/Yeager/ChickenFinancial.svg
 [stars badge]:https://img.shields.io/github/stars/Yeager/ChickenFinancial.svg
 [forks badge]:https://img.shields.io/github/forks/Yaeger/ChickenFinancial.svg
 [issues badge]:https://img.shields.io/github/issues/Yaeger/ChickenFinancial.svg
@@ -22,8 +23,9 @@ Components and dependacies
 
 
 ### Author, Contributors, and License
-* Architect: Aaron Yaeger
-* Contributors / Actual people doing the real work: 
+Architect: 
+* Aaron Yaeger
+Contributors / Actual people doing the real work: 
 *   Ahmed Ahmed
 *   Andrew Charais
 *   Andrew McIntyre
@@ -40,5 +42,5 @@ Components and dependacies
 *   Tristan Saldanha
 *   Vesper Perry
 *   Wally Lu
-* License: BSD 3-Clause
-* Required Dependencies: [node.js](https://nodejs.org/en/) and stuff
+License: BSD 3-Clause
+Required Dependencies: [node.js](https://nodejs.org/en/) and stuff

@@ -17,7 +17,7 @@ GET /api/v2/account/{ID}/               //Get Account Information & Transfer His
 GET /api/v2/transfer/{ID}/              //Get Trasfer Information
 POST /api/v2/User/Transfer              //Initiate Transfer
 PUT /api/v2/User/Transfer/{ID}/         //Edit Transfer
-DELETE /api/v1/Transfer/{ID}/           //Delete Transfer
+DELETE /api/v2/Transfer/{ID}/           //Delete Transfer
 
 GET /api/v2/authorizeTransfer/{transferID}  //Authorize Transfer (Backend process)
 

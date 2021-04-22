@@ -10,6 +10,8 @@ var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
 var accountRouter = require('./routes/account');
 var transactRouter = require('./routes/transact');
+var authorizeTransferRouter = require('./routes/authorizeTransfer');
+var EOLRouter = require('./routes/EOL'); 
 var indexRouter = require('./routes/index'); 
 // Auth, User, Account, Transactions
 
@@ -29,10 +31,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Put new routes before last app.use
-app.use('/api/auth', authRouter);
-app.use('/api/user', userRouter);
-app.use('/api/account', accountRouter);
-app.use('/api/transact', transactRouter);
+app.use('/api/v2/authorizeTransfer', authorizeTransferRouter);
+app.use('/api/v2/auth', authRouter);
+app.use('/api/*/user', userRouter);
+app.use('/api/v2/account', accountRouter);
+app.use('/api/v2/transact', transactRouter);
+app.use('/api/v1/*', EOLRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

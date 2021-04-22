@@ -23,7 +23,7 @@ Components and dependacies
 
 
 ## Author, Contributors, and License
-Architect: 
+###Architect: 
 * Aaron Yaeger
 ### Contributors / Actual people doing the real work: 
 *   Ahmed Ahmed

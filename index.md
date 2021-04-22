@@ -16,16 +16,16 @@
 [forks]:https://github.com/Yaeger/ChickenFinancial/network
 [issues]:https://github.com/Yaeger/ChickenFinancial/issues
 
-### ChickenFinancial: A great description.
+## ChickenFinancial: A great description.
 
 Components and dependacies
 
 
 
-### Author, Contributors, and License
+## Author, Contributors, and License
 Architect: 
 * Aaron Yaeger
-Contributors / Actual people doing the real work: 
+### Contributors / Actual people doing the real work: 
 *   Ahmed Ahmed
 *   Andrew Charais
 *   Andrew McIntyre
@@ -42,5 +42,5 @@ Contributors / Actual people doing the real work:
 *   Tristan Saldanha
 *   Vesper Perry
 *   Wally Lu
-License: BSD 3-Clause
-Required Dependencies: [node.js](https://nodejs.org/en/) and stuff
+### License: BSD 3-Clause
+### Required Dependencies: [node.js](https://nodejs.org/en/) and stuff

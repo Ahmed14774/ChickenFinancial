@@ -8,6 +8,7 @@ router.get('/:account_id', function(req, res, next) {
   //Add SQL to retrieve account balance and history
   var sql = "select * from account where accountID = ?"
   var params = [req.params.account_id]
+<<<<<<< HEAD
   var userID = 0;
   var accountName = "";
   var numEgg = 0;
@@ -36,6 +37,18 @@ router.get('/:account_id', function(req, res, next) {
       }
   });
 
+=======
+  db.all(sql, params, (err, rows) => {
+    if (err) {
+      res.status(400).json({"error": err.message})
+      return;
+    } else if (!rows){
+        return;
+    } else{
+        res.send(rows)
+    }
+  });
+>>>>>>> master
 });
 
 module.exports = router;

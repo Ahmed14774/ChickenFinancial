@@ -23,7 +23,7 @@ router.get('/:userID', function(req, res, next){
   var query = "SELECT * FROM account WHERE userID = ?";
   var value = req.params.userID;
   
-  db.get(query, value, (err, results)=>{
+  db.all(query, value, (err, results)=>{
     
     //DEBUG STATEMENT 
     console.log(results);

@@ -9,7 +9,7 @@ const handlebars = require('./util/handlebars')(exphbs);
 var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
 var accountRouter = require('./routes/account');
-var transactRouter = require('./routes/transact');
+var transferRouter = require('./routes/transfer');
 var authorizeTransferRouter = require('./routes/authorizeTransfer');
 var EOLRouter = require('./routes/EOL'); 
 var indexRouter = require('./routes/index'); 
@@ -35,7 +35,7 @@ app.use('/api/v2/authorizeTransfer', authorizeTransferRouter);
 app.use('/api/v2/auth', authRouter);
 app.use('/api/*/user', userRouter);
 app.use('/api/v2/account', accountRouter);
-app.use('/api/v2/transact', transactRouter);
+app.use('/api/v2/transfer', transferRouter);
 app.use('/api/v1/*', EOLRouter);
 app.use('/', indexRouter);
 

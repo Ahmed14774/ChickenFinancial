@@ -3,6 +3,7 @@ var router = express.Router();
 var jwt = require('jsonwebtoken');
 
 const { restart } = require('nodemon');
+const app = require('../app');
 const db = require('../util/database')
 
 /* GET home page. */

@@ -12,9 +12,7 @@ var accountRouter = require('./routes/account');
 var transferRouter = require('./routes/transfer');
 var authorizeTransferRouter = require('./routes/authorizeTransfer');
 var EOLRouter = require('./routes/EOL'); 
-var indexRouter = require('./routes/index'); 
-// Auth, User, Account, Transactions
-
+var indexRouter = require('./routes/index');
 
 var app = express();
 

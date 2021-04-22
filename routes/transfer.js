@@ -98,9 +98,47 @@ router.post('/', [
 });
 
 /* Edit a transfer. */
-router.put('/:transfer_id', function(req, res) {
-  // Transfer can only be edited if it hasn't been authorized
-  // VULN: allow users to change account IDs to accounts they don't own (per Aaron)
+router.put('/:transfer_id', [ 
+    check('origin', 'Origin account must be a number.').isNumeric(),
+    check('target', 'Target account must be a number.').isNumeric(),
+    check('amount', 'Amount must be a number.').isNumeric(),
+    check('transfer_id', 'Transfer ID must be a number.').isNumeric()
+  ], function(req, res) {
+    // TODO: pull in user ID from session
+    userID = 1;
+    
+    const errors = validationResults(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ "Errors": errors.array() });
+      return;
+    }
+    // Transfer can only be edited if it hasn't been authorized
+    // VULN: allow users to change account IDs to accounts they don't own (per Aaron)
+    query_get_transfer = "SELECT * FROM transfer WHERE id = ?";
+    db.get(query_get_transfer, [req.query.transfer_id], function (err, result) {
+      if (err) {
+        res.status(400).json({ "Error": err.message });
+        return;
+      } else {
+        // Check if user owns the transfer and the transfer is not yet authorized
+        if (result.userID != userID || result.authorized != 0) {
+          res.json({ "Error": "Transfer cannot be modified by the current user." });
+          return;
+        } else {
+          transfer_info = [
+            origin = req.body.origin,
+            target = req.body.target,
+            amount = req.body.amount,
+            comment = req.body.comment,
+            transferID = req.query.transfer_id
+          ]
+          query_update = "UPDATE transfer SET origin = ?, target = ?, amount = ?, comment = ? WHERE transferID = ?";
+          db.run(query_update, transfer_info, function (err, result) {
+            //
+          });
+        }
+      }
+  });
 });
 
 /* Delete a transaction. */

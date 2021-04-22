@@ -23,8 +23,9 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           console.log(err);
         }
         else {
-          var insert0 = 'INSERT INTO user (userName, firstName, lastName, favEgg, password) VALUES ("ayaeger", "Aaron", "Yaeger", "raw", "thechickencamefirst")';
-          var insert1 = 'INSERT INTO user(userName, firstName, lastName, favEgg, password) VALUES ("wlu", "Wally", "Lu", "scrambled", "supersecretpassword")';
+          // Populate test data if it's not there
+          var insert0 = 'INSERT OR IGNORE INTO user (userName, firstName, lastName, favEgg, password) VALUES ("ayaeger", "Aaron", "Yaeger", "raw", "thechickencamefirst")';
+          var insert1 = 'INSERT OR IGNORE INTO user (userName, firstName, lastName, favEgg, password) VALUES ("wlu", "Wally", "Lu", "scrambled", "supersecretpassword")';
           db.run(insert0);
           db.run(insert1);
         }
@@ -43,8 +44,8 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           console.log(err);
         }
         else {
-          var insert0 = 'INSERT INTO account (userID, name, numEgg) VALUES (1, "New Boat Fund", 1000000)';
-          var insert1 = 'INSERT INTO account (userID, name, numEgg) VALUES (2, "Savings", 100)';
+          var insert0 = 'INSERT OR IGNORE INTO account (userID, name, numEgg) VALUES (1, "New Boat Fund", 1000000)';
+          var insert1 = 'INSERT OR IGNORE INTO account (userID, name, numEgg) VALUES (2, "Savings", 100)';
           db.run(insert0);
           db.run(insert1);
         }
@@ -67,7 +68,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           console.log(err);
         }
         else {
-          var insert0 = 'INSERT INTO transfer (origin, target, date, amount, authorized, comment) VALUES (2, 1, "2021-04-22 12:01:00", 1, 1, "Don\'t spend it all in one place.")';
+          var insert0 = 'INSERT OR IGNORE INTO transfer (origin, target, date, amount, authorized, comment) VALUES (2, 1, "2021-04-22 12:01:00", 1, 1, "Don\'t spend it all in one place.")';
           db.run(insert0);
         }
       }
@@ -85,7 +86,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           console.log(err);
         }
         else {
-          var insert0 = 'INSERT INTO history (userID, date, action) VALUES (1, "2021-04-22 08:30:00", "Authentication - Success")';
+          var insert0 = 'INSERT OR IGNORE INTO history (userID, date, action) VALUES (1, "2021-04-22 08:30:00", "Authentication - Success")';
           db.run(insert0);
         }
       }

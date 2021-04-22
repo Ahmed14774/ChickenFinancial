@@ -24,3 +24,23 @@ router.get('/api/v2/auth/history/userID', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* POST /api/v1/auth/login */
+router.post('/api/v1/auth/login', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+
+/* POST /api/v1/auth/refresh */
+router.post('/api/v1/auth/refresh', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+/* POST /api/v1/auth/logout */
+router.post('/api/v1/auth/logout', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+/* GET  /api/v1/auth/history/{userID} */
+router.get('/api/v1/auth/history/userID', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});

@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th>Account Number</th>
+        <th>Account Name</th>
+        <th>Total Eggs</th>
+    </tr>
+
+    {{#each results}}
+    <tr>
+        <td>{{this.accountID}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.numEgg}}</td>
+    </tr>
+    {{/each}}
+</table>

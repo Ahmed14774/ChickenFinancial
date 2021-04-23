@@ -1,9 +1,12 @@
 var express = require('express');
-const db = require('../util/database');
-const jwt = require('jsonwebtoken');
 var router = express.Router();
+
+const db = require('../util/database');
+const TOKEN_SECRET='youllneverfindthiskey';
+const jwt = require('jsonwebtoken');
+const { prototype } = require('events');
+
 module.exports = router;
-var TOKEN_SECRET='youllneverfindthiskey';
 
 /* POST /api/v2/auth/login */
 router.post('/login', function(req, res, next) {
@@ -27,10 +30,12 @@ router.post('/login', function(req, res, next) {
       return;
     }
     else {
-      // Set the JWT tokens
+      // Set refresh token cookie
+      const refreshToken = require('crypto').randomBytes(16).toString('hex');
+      res.cookie('refreshToken', refreshToken, {maxAge: 360000, path: '/api/v2/auth/refresh'});
+      // Create JWT session token
       const token = jwt.sign({username: authUser}, TOKEN_SECRET, { expiresIn: '1800s' });
       res.json(token);
-      //res.render('index', { title: 'Success' });
     }
   }); // End of db.get
 }); // End of POST login
@@ -38,7 +43,14 @@ router.post('/login', function(req, res, next) {
 
 /* POST /api/v2/auth/refresh */
 router.post('/refresh', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  if (req.headers.cookies == null) {
+    res.send("Invalid or No Refresh Token");
+  }
+  else {
+    const chicken = require('crypto').randomBytes(4).toString('hex');
+    const newToken = jwt.sign({username: chicken}, TOKEN_SECRET, { expiresIn: '1800s' });
+    res.json(newToken);
+  }
 });
 
 /* POST /api/v2/auth/logout */
@@ -48,7 +60,15 @@ router.post('/logout', function(req, res, next) {
 
 /* GET  /api/v2/auth/history/{userID} */
 router.get('/history/:userID', function(req, res, next) {
-  //res.render('index', { title: 'Express' });
+  var sql = "select * from history where userID = ?"
+  var params = [req.params.id];
+  db.all(sql, params, (err, rows) => {
+    if (err) {
+      res.status(400).json({"error":err.message});
+        return;
+    }
+    res.json({"message":"success","data":rows})
+  });
 });
 
 /* POST /api/v1/auth/login */

@@ -54,7 +54,17 @@ router.post('/refresh', function(req, res, next) {
 });
 
 /* POST /api/v2/auth/logout */
+/* Like a refresh token, but dies in 1 second */
 router.post('/logout', function(req, res, next) {
+
+if (req.headers.cookies == null){
+  res.send("Truth is, you were logged out from the start");
+} else {
+  const chicken = require('crypto').randomBytes(4).toString('hex');
+  const newToken = jwt.sign({username: chicken}, TOKEN_SECRET, { expiresIn: '1s' });
+  res.json(newToken);
+}
+
   res.render('index', { title: 'Express' });
 });
 
